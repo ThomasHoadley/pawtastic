@@ -1,0 +1,49 @@
+section.care {
+	margin-top: 60px;
+	@media (min-width: 768px) {
+		margin-top: 115px;
+		.col {
+			.content {
+				max-width: 100%;
+				width: 480px;
+			}
+			.image-grid {
+				width: 546px;
+				justify-content: space-evenly;
+			}
+		}
+	}
+	h2,
+	p {
+		color: $darkBlue;
+	}
+	h2 {
+		margin-top: 0px;
+	}
+	.button {
+		margin-top: 2em;
+	}
+}
+
+.image-grid {
+	display: flex;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	.image {
+		position: relative;
+		margin-bottom: 25px;
+		img {
+			border-radius: 10px;
+		}
+		.text {
+			position: absolute;
+			bottom: 1em;
+			left: 1em;
+			color: #fff;
+			font-size: 16px;
+			margin: 0px;
+		}
+	}
+}
