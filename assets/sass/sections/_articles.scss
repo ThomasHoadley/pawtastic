@@ -41,7 +41,7 @@ section.articles {
 		justify-content: center;
 		align-items: center;
 	}
-	@media (min-width: $breakPoint) {
+	@media (min-width: 960px) {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;

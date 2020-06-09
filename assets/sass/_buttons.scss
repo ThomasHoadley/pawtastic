@@ -1,3 +1,4 @@
+button,
 .button {
 	height: 56px;
 	line-height: 56px;
@@ -27,4 +28,16 @@
 	&.button--pink {
 		background: $salmon;
 	}
+}
+
+button,
+input[type="submit"],
+input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
 }

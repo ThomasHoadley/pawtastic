@@ -29,19 +29,17 @@ gulp.task("styles", () => {
 });
 
 gulp.task("js", function () {
-	return (
-		gulp
-			.src(paths.js.in)
-			// .pipe(babel({ presets: ["@babel/preset-env"] }))
-			.pipe(sourcemaps.init())
-			.pipe(concat("main.js"))
-			.pipe(uglify())
-			.pipe(sourcemaps.write(paths.js.out))
-			.pipe(gulp.dest(paths.js.out))
-			.on("error", function (event) {
-				console.log("Error: " + event);
-			})
-	);
+	return gulp
+		.src(paths.js.in)
+		.pipe(babel({ presets: ["@babel/preset-env"] }))
+		.pipe(sourcemaps.init())
+		.pipe(concat("main.js"))
+		.pipe(uglify())
+		.pipe(sourcemaps.write(paths.js.out))
+		.pipe(gulp.dest(paths.js.out))
+		.on("error", function (event) {
+			console.log("Error: " + event);
+		});
 });
 
 gulp.task("watch", () => {

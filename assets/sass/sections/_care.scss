@@ -15,7 +15,11 @@ section.care {
 			}
 			.image-grid {
 				width: 546px;
+				max-width: 100%;
 				justify-content: space-evenly;
+				img {
+					max-width: 100%;
+				}
 			}
 			&:last-child {
 				justify-content: flex-end;
