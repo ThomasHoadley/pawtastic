@@ -1,11 +1,14 @@
 header {
-	height: 80vh;
 	width: 100%;
 	background-image: url("images/bg-header-large.png");
 	background-size: cover;
 	backgrond-repeat: no-repeat;
 	background-position: bottom center;
 	padding-top: 3em;
+	height: 500px;
+	@media (min-width: $breakPoint) {
+		height: 80vh;
+	}
 	.inner-container {
 		position: relative;
 	}
@@ -54,11 +57,12 @@ header {
 	.smallprint {
 		p {
 			position: absolute;
-			bottom: 3em;
+			bottom: 10px;
 			color: #fff;
 			font-weight: 400;
 			font-size: 16px;
 			left: 15px;
+			text-align: center;
 		}
 	}
 }

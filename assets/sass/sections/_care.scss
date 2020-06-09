@@ -1,11 +1,17 @@
 section.care {
 	margin-top: 60px;
+	.col .content {
+		text-align: center;
+		margin-bottom: 30px;
+	}
 	@media (min-width: $breakPoint) {
 		margin-top: 115px;
 		.col {
 			.content {
 				max-width: 100%;
 				width: 480px;
+				text-align: left;
+				margin-bottom: 0px;
 			}
 			.image-grid {
 				width: 546px;

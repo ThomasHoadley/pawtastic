@@ -1,3 +1,74 @@
 section.articles {
 	background: #545871;
+	padding: 60px 0px;
+	@media (min-width: $breakPoint) {
+		padding: 120px 0px;
+	}
+	.header-text {
+		color: #fff;
+		text-align: center;
+		h2 {
+			margin-top: 0px;
+		}
+	}
+	.cta {
+		text-align: center;
+		margin-top: 60px;
+		.button {
+			margin-left: auto;
+			margin-right: auto;
+		}
+	}
+}
+
+.article-row {
+	color: $darkBlue;
+	.article {
+		width: 100%;
+		max-width: 100%;
+		margin: 0px;
+		margin-bottom: 20px;
+	}
+
+	.article {
+		background: #fff;
+		box-shadow: 0px 0px 14px 2px rgba(0, 0, 0, 0.1);
+		border-radius: 10px;
+		padding: 30px;
+		display: flex;
+		flex-direction: row;
+		flex: 0 0 auto;
+		justify-content: center;
+		align-items: center;
+	}
+	@media (min-width: $breakPoint) {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+
+		.article {
+			width: calc(50% - 40px);
+			margin: 20px;
+		}
+	}
+	.image {
+		width: 160px;
+		height: auto;
+		flex: 0 0 auto;
+		img {
+			max-width: 100%;
+			height: auto;
+			border-radius: 10px;
+		}
+	}
+	.text {
+		padding-left: 30px;
+		h4 {
+			margin-top: 0px;
+			margin-bottom: 10px;
+		}
+		p {
+			font-size: 18px;
+		}
+	}
 }
