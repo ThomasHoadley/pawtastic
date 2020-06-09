@@ -1,0 +1,27 @@
+.contact {
+	background: #f7eceb;
+	height: 500px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+	margin-top: 75px;
+	h2 {
+		margin-top: 0px;
+		margin-bottom: 30px;
+		&:last-child {
+			margin-bottom: 0px;
+		}
+	}
+	.title {
+		color: #545871;
+		opacity: 0.3;
+	}
+	.phone {
+		color: #545871;
+	}
+	a {
+		text-decoration: underline;
+		color: #545871;
+	}
+}

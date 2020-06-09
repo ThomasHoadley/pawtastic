@@ -1,18 +1,52 @@
 section.tailored {
 	width: 100%;
-	height: 70vh;
 	margin-top: 60px;
 	background: #f7eceb;
 	color: $darkBlue;
-	
-	@media (min-width: 768px) {
-		margin-top: 115px;
-	}
+
 	.col.image-container {
 		background-size: cover;
 		backgrond-repeat: no-repeat;
 		background-position: center;
 		background-position: bottom center;
-		height: 100%;
+		height: 500px;
+	}
+	.col.text {
+		padding: 60px 30px;
+		text-align: center;
+	}
+	.button {
+		margin-top: 2em;
+	}
+	h2 {
+		margin-top: 0px;
+	}
+
+	@media (min-width: $breakPoint) {
+		margin-top: 115px;
+		height: 70vh;
+		.col {
+			height: 100%;
+		}
+		.col.image-container {
+			height: 100%;
+		}
+		.col.text {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding: 0px;
+			text-align: left;
+			.content {
+				max-width: 100%;
+				width: 400px;
+				margin-left: 2em;
+			}
+		}
+	}
+	@media (min-width: 960px) {
+		.col.text .content {
+			margin-left: 6em;
+		}
 	}
 }

@@ -1,6 +1,6 @@
 section.care {
 	margin-top: 60px;
-	@media (min-width: 768px) {
+	@media (min-width: $breakPoint) {
 		margin-top: 115px;
 		.col {
 			.content {
@@ -10,6 +10,9 @@ section.care {
 			.image-grid {
 				width: 546px;
 				justify-content: space-evenly;
+			}
+			&:last-child {
+				justify-content: flex-end;
 			}
 		}
 	}

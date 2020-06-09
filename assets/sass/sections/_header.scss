@@ -45,7 +45,7 @@ header {
 		.button {
 			margin-top: 2em;
 		}
-		@media (min-width: 768px) {
+		@media (min-width: $breakPoint) {
 			float: right;
 			width: 440px;
 			text-align: left;

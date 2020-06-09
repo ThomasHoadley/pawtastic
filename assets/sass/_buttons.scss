@@ -10,9 +10,18 @@
 	text-decoration: none;
 	width: 256px;
 	max-width: 100%;
+	transition: all 0.3s ease-in-out;
+
+	&:hover {
+		background: #dadbe6;
+	}
 
 	&.button--dark {
 		background: $darkBlue;
 		color: #fff;
+
+		&:hover {
+			background: #dadbe6;
+		}
 	}
 }
