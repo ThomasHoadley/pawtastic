@@ -22,7 +22,7 @@
 		<header>
 			<div class="inner-container">
 				<div class="navigation">
-					<img src="images/logo2.png" alt="Pawtastic" class="logo" />
+					<img src="images/logo.png" alt="Pawtastic" class="logo" />
 					<div class="links">
 						<ul>
 							<li><a href="#">About us</a></li>

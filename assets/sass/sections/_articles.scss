@@ -17,6 +17,10 @@ section.articles {
 		.button {
 			margin-left: auto;
 			margin-right: auto;
+			&.disable {
+				cursor: not-allowed !important;
+				opacity: 0.7 !important;
+			}
 		}
 	}
 }

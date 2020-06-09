@@ -5,20 +5,19 @@ jQuery(document).ready(function ($) {
 	// on click get more posts
 
 	$("#load-more").click(function () {
-		var getAmount = $(this).data("loaded");
-		var newAmount = getAmount + 4;
-		getPosts(newAmount);
-		$(this).data("loaded", newAmount);
+		if (!$(this).hasClass("disable")) {
+			getPosts(10);
+			$(this).addClass("disable");
+		} else {
+			return;
+		}
 	});
 
 	/**
 	 * get Posts function
 	 */
 	function getPosts(getAmount) {
-		$(".article-row").empty();
-
 		const RSS_URL = "rss-feed.php";
-		var getAmount = getAmount;
 
 		$.ajax(RSS_URL, {
 			accepts: {
@@ -29,7 +28,6 @@ jQuery(document).ready(function ($) {
 
 			success: function (data) {
 				var initialCount = 0;
-				var count;
 
 				$(data)
 					.find("item")
@@ -38,23 +36,23 @@ jQuery(document).ready(function ($) {
 							return;
 						} else {
 							const el = $(this);
-							console.log(el);
 
 							const template = `
-					<div class="article">
-						<div class="image">
-							<img src="http://placehold.it/200x200">
-						</div>
-						<div class="text">
-						<h4>
-							${el.find("title").text()}
-						</h4>
-						<p>
-							${trimLength(el.find("description").text(), 100)}
-						</p>
-						</div>
-					</div>
-					`;
+							<div class="article">
+								<div class="image">
+									<img src="http://placehold.it/200x200">
+								</div>
+								<div class="text">
+								<h4>
+									${el.find("title").text()}
+								</h4>
+								<p>
+									${trimLength(el.find("description").text(), 100)}
+								</p>
+								</div>
+							</div>
+							`;
+
 							$(".article-row").append(template);
 							initialCount++;
 						}
