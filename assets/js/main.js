@@ -1,8 +1,19 @@
 jQuery(document).ready(function ($) {
-	// on load get posts
-	getPosts(4);
+	init();
 
-	// on click get more posts
+	// menu toggle
+
+	$("#menuToggle input[type='checkbox'").change(function () {
+		if (this.checked) {
+			$("body").addClass("menu-open");
+		} else {
+			$("body").removeClass("menu-open");
+		}
+	});
+
+	/**
+	 * get posts
+	 */
 
 	$("#load-more").click(function () {
 		if (!$(this).hasClass("disable")) {
@@ -17,7 +28,7 @@ jQuery(document).ready(function ($) {
 	 * get Posts function
 	 */
 	function getPosts(getAmount) {
-		const RSS_URL = "rss-feed.php";
+		const RSS_URL = "https://www.nasa.gov/rss/dyn/breaking_news.rss";
 
 		$.ajax(RSS_URL, {
 			accepts: {
@@ -113,7 +124,6 @@ jQuery(document).ready(function ($) {
 	 */
 
 	var ellipsis = "...";
-
 	function trimLength(text, maxLength) {
 		text = $.trim(text);
 
@@ -121,5 +131,15 @@ jQuery(document).ready(function ($) {
 			text = text.substring(0, maxLength - ellipsis.length);
 			return text.substring(0, text.lastIndexOf(" ")) + ellipsis;
 		} else return text;
+	}
+
+	function init() {
+		AOS.init({
+			duration: 1200, // values from 0 to 3000, with step 50ms
+			easing: "ease-in-out-sine",
+			once: true,
+			offset: 120,
+		});
+		getPosts(4);
 	}
 });

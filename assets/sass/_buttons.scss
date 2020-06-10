@@ -15,7 +15,8 @@ button,
 
 	&:hover {
 		background: #dadbe6;
-}
+		color: $darkBlue;
+	}
 
 	&.button--dark {
 		background: $darkBlue;
@@ -23,6 +24,7 @@ button,
 
 		&:hover {
 			background: #dadbe6;
+			color: $darkBlue;
 		}
 	}
 	&.button--pink {
