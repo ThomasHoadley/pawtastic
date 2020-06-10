@@ -1,80 +1,100 @@
+window.postsLoaded = 4;
+
 jQuery(document).ready(function ($) {
-	init();
+	menuToggle();
+	displayPosts();
 
-	// menu toggle
-
-	$("#menuToggle input[type='checkbox'").change(function () {
-		if (this.checked) {
-			$("body").addClass("menu-open");
-		} else {
-			$("body").removeClass("menu-open");
-		}
+	AOS.init({
+		duration: 1200, // values from 0 to 3000, with step 50ms
+		easing: "ease-in-out-sine",
+		once: true,
+		offset: 120,
 	});
 
-	/**
-	 * get posts
-	 */
+	// GET POSTS
 
-	$("#load-more").click(function () {
-		if (!$(this).hasClass("disable")) {
-			getPosts(10);
-			$(this).addClass("disable");
-		} else {
+	async function getPosts() {
+		const RSS_URL = `https://cors-anywhere.herokuapp.com/https://www.nasa.gov/rss/dyn/breaking_news.rss`;
+		let data = await fetch(RSS_URL)
+			.then((response) => response.text())
+			.then((str) => new window.DOMParser().parseFromString(str, "text/xml"))
+			.then((data) => {
+				let articles = data.querySelectorAll("item");
+				return articles;
+			})
+			.catch((error) => console.log("error is", error));
+		return data;
+	}
+
+	function displayPosts(getAll) {
+		if (getAll == true) {
+			let html = "";
+
+			getPosts().then((data) => {
+				var nodes = [...data];
+				nodes.splice(0, 4);
+
+				nodes.forEach((el) => {
+					html += `
+					<div class="article" data-aos="fade-in">
+						<div class="image">
+							<img src="http://placehold.it/200x200">
+						</div>
+						<div class="text">
+						<h4>
+							${el.querySelector("title").innerHTML}
+						</h4>
+						</div>
+					</div>
+					`;
+				});
+				$(".article-row").append(html);
+				$("#load-more").addClass("disabled");
+			});
 			return;
 		}
-	});
 
-	/**
-	 * get Posts function
-	 */
-	function getPosts(getAmount) {
-		const RSS_URL = "https://www.nasa.gov/rss/dyn/breaking_news.rss";
+		getPosts().then((data) => {
+			let html = "";
+			let loadPosts = window.postsLoaded;
+			let count = 0;
 
-		$.ajax(RSS_URL, {
-			accepts: {
-				xml: "application/rss+xml",
-			},
+			data.forEach((el) => {
+				if (count == loadPosts) {
+					return html;
+				}
 
-			dataType: "xml",
+				html += `
+					<div class="article" data-aos="fade-in">
+						<div class="image">
+							<img src="http://placehold.it/200x200">
+						</div>
+						<div class="text">
+						<h4>
+							${el.querySelector("title").innerHTML}
+						</h4>
+						</div>
+					</div>
+				`;
+				count++;
+			});
 
-			success: function (data) {
-				var initialCount = 0;
+			$(".article-row").html(html);
 
-				$(data)
-					.find("item")
-					.each(function () {
-						if (initialCount == getAmount) {
-							return;
-						} else {
-							const el = $(this);
+			window.postsLoaded = window.postsLoaded + 4;
 
-							const template = `
-							<div class="article">
-								<div class="image">
-									<img src="http://placehold.it/200x200">
-								</div>
-								<div class="text">
-								<h4>
-									${el.find("title").text()}
-								</h4>
-								<p>
-									${trimLength(el.find("description").text(), 100)}
-								</p>
-								</div>
-							</div>
-							`;
+			$("#load-more").removeClass("disabled");
 
-							$(".article-row").append(template);
-							initialCount++;
-						}
-					});
-			},
+			$("#load-more").on("click", function () {
+				displayPosts(true);
+			});
 		});
 	}
 
 	/**
 	 * SMOOTH SCROLL
 	 */
+
 	$('a[href*="#"]')
 		// Remove links that don't actually link to anything
 		.not('[href="#"]')
@@ -123,23 +143,13 @@ jQuery(document).ready(function ($) {
 	 * HELPERS
 	 */
 
-	var ellipsis = "...";
-	function trimLength(text, maxLength) {
-		text = $.trim(text);
-
-		if (text.length > maxLength) {
-			text = text.substring(0, maxLength - ellipsis.length);
-			return text.substring(0, text.lastIndexOf(" ")) + ellipsis;
-		} else return text;
-	}
-
-	function init() {
-		AOS.init({
-			duration: 1200, // values from 0 to 3000, with step 50ms
-			easing: "ease-in-out-sine",
-			once: true,
-			offset: 120,
+	function menuToggle() {
+		$("#menuToggle input[type='checkbox'").change(function () {
+			if (this.checked) {
+				$("body").addClass("menu-open");
+			} else {
+				$("body").removeClass("menu-open");
+			}
 		});
-		getPosts(4);
 	}
 });

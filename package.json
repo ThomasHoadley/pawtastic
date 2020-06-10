@@ -23,6 +23,7 @@
 		"gulp-uglify": "^3.0.2"
 	},
 	"dependencies": {
+		"axios": "^0.19.2",
 		"jquery": "^3.5.1"
 	}
 }

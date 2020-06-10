@@ -46,7 +46,11 @@ section.care {
 	justify-content: space-evenly;
 	.image {
 		position: relative;
-		margin-bottom: 25px;
+		width: calc(50% - 20px);
+		margin: 10px;
+		@media (min-width: $breakPoint) {
+			margin-bottom: 25px;
+		}
 		img {
 			border-radius: 10px;
 		}
