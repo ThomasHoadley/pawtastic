@@ -9,6 +9,7 @@ jQuery(document).ready(function ($) {
 		easing: "ease-in-out-sine",
 		once: true,
 		offset: 120,
+		startEvent: "DOMContentLoaded", // name of the event dispatched on the document, that AOS should initialize on
 	});
 
 	// GET POSTS
@@ -36,7 +37,7 @@ jQuery(document).ready(function ($) {
 
 				nodes.forEach((el) => {
 					html += `
-					<div class="article" data-aos="fade-in">
+					<div class="article" data-aos="fade-up" data-aos-delay="300">
 						<div class="image">
 							<img src="http://placehold.it/200x200">
 						</div>
@@ -65,7 +66,7 @@ jQuery(document).ready(function ($) {
 				}
 
 				html += `
-					<div class="article" data-aos="fade-in">
+					<div class="article" data-aos="fade-up" data-aos-delay="300">
 						<div class="image">
 							<img src="http://placehold.it/200x200">
 						</div>

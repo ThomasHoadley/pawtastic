@@ -17,11 +17,270 @@
 			href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans:wght@300;400;700&display=swap"
 			rel="stylesheet"
 		/>
-		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
-		<link rel="stylesheet" href="main.css" />
 		<meta name="theme-color" content="#fff" />
+
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+		<!-- INLINE ABOVE THE FOLD STYLES FOR QUICKER LOADING. -->
+		<style>
+			#mobile-menu {
+				-webkit-transform: translate(-100%, 0);
+				-ms-transform: translate(-100%, 0);
+				transform: translate(-100%, 0);
+				position: fixed;
+				width: 100%;
+				height: 100vh;
+				-webkit-box-shadow: 0 0 10px #85888c;
+				box-shadow: 0 0 10px #85888c;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				padding: 50px;
+				background-color: #f5f6fa;
+				-webkit-font-smoothing: antialiased;
+				-webkit-transform-origin: 0% 0%;
+				-ms-transform-origin: 0% 0%;
+				transform-origin: 0% 0%;
+				-webkit-transition: -webkit-transform 0.5s
+					cubic-bezier(0.77, 0.2, 0.05, 1);
+				transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+				-o-transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+				transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+				transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+					-webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-orient: vertical;
+				-webkit-box-direction: normal;
+				-ms-flex-direction: column;
+				flex-direction: column;
+				-ms-flex-line-pack: center;
+				align-content: center;
+				margin-top: 0px;
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
+				justify-content: center;
+			}
+			#mobile-menu li {
+				list-style: none;
+				margin: 0px;
+				padding: 0px;
+				display: block;
+				margin-bottom: 10px;
+			}
+			#mobile-menu li:last-child {
+				margin-bottom: 0px;
+			}
+			#mobile-menu li a {
+				font-family: "Merriweather", serif;
+				color: #545871;
+				font-size: calc(2em + 1vw);
+				text-decoration: none;
+			}
+
+			header {
+				width: 100%;
+				background-image: url("images/bg-header.jpg");
+				background-size: cover;
+				backgrond-repeat: no-repeat;
+				background-position: bottom center;
+				padding-top: 3em;
+				height: 600px;
+			}
+			@media (min-width: 768px) {
+				header {
+					height: 80vh;
+					min-height: 800px;
+				}
+			}
+			header .logo {
+				width: 220px;
+				max-width: 100%;
+			}
+			header .inner-container {
+				position: relative;
+			}
+			header .navigation {
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-orient: horizontal;
+				-webkit-box-direction: normal;
+				-ms-flex-direction: row;
+				flex-direction: row;
+				-ms-flex-wrap: nowrap;
+				flex-wrap: nowrap;
+				-webkit-box-pack: justify;
+				-ms-flex-pack: justify;
+				justify-content: space-between;
+				-webkit-box-align: center;
+				-ms-flex-align: center;
+				align-items: center;
+			}
+			header .navigation .desktop-links ul {
+				list-style: none;
+				margin: 0px;
+				padding: 0px;
+			}
+			header .navigation .desktop-links ul li {
+				display: inline-block;
+				margin-right: 1em;
+				font-size: 1em;
+			}
+			header .navigation .desktop-links ul li:last-child {
+				margin-right: 0px;
+			}
+			header .navigation .desktop-links ul li a {
+				text-decoration: none;
+				color: white;
+			}
+			header .content {
+				color: #fff;
+				margin-top: 2em;
+				text-align: center;
+				width: 500px;
+				max-width: 100%;
+				text-align: center;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			header .content .button {
+				margin-top: 2em;
+			}
+			@media (min-width: 768px) {
+				header .content {
+					float: right;
+					width: 440px;
+					text-align: left;
+				}
+			}
+			header p.smallprint {
+				position: absolute;
+				bottom: 10px;
+				color: #fff;
+				font-weight: 400;
+				font-size: 16px;
+				left: 50%;
+				-webkit-transform: translateX(-50%);
+				-ms-transform: translateX(-50%);
+				transform: translateX(-50%);
+				text-align: center;
+			}
+			@media (min-width: 768px) {
+				header p.smallprint {
+					left: 15px;
+					-webkit-transform: translateX(0);
+					-ms-transform: translateX(0);
+					transform: translateX(0);
+				}
+			}
+			header .desktop-links {
+				display: none;
+			}
+			header .mobile-links {
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-orient: vertical;
+				-webkit-box-direction: normal;
+				-ms-flex-direction: column;
+				flex-direction: column;
+				top: 25px;
+				left: 25px;
+				z-index: 1;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
+			@media (min-width: 768px) {
+				header .desktop-links {
+					display: block;
+				}
+				header .mobile-links {
+					display: none;
+				}
+			}
+			header .mobile-links input {
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				width: 40px;
+				height: 32px;
+				position: absolute;
+				cursor: pointer;
+				opacity: 0;
+				z-index: 2;
+			}
+			header .mobile-links span {
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: flex;
+				width: 33px;
+				height: 3px;
+				margin-bottom: 5px;
+				background: #ffffff;
+				border-radius: 3px;
+				z-index: 1;
+				-webkit-transform-origin: 5px 0px;
+				-ms-transform-origin: 5px 0px;
+				transform-origin: 5px 0px;
+				-webkit-transition: background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+					opacity 0.55s ease,
+					-webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+				transition: background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+					opacity 0.55s ease,
+					-webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+				-o-transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+					background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+				transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+					background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+				transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+					background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease,
+					-webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+			}
+			header .mobile-links span:first-child {
+				-webkit-transform-origin: 0% 0%;
+				-ms-transform-origin: 0% 0%;
+				transform-origin: 0% 0%;
+			}
+			header .mobile-links span:nth-last-child(2) {
+				-webkit-transform-origin: 0% 100%;
+				-ms-transform-origin: 0% 100%;
+				transform-origin: 0% 100%;
+			}
+			header .mobile-links input:checked ~ span {
+				opacity: 1;
+				-webkit-transform: rotate(45deg) translate(-3px, -1px);
+				-ms-transform: rotate(45deg) translate(-3px, -1px);
+				transform: rotate(45deg) translate(-3px, -1px);
+				background: #545871;
+			}
+			header .mobile-links input:checked ~ span:nth-last-child(3) {
+				opacity: 0;
+				-webkit-transform: rotate(0deg) scale(0.2, 0.2);
+				-ms-transform: rotate(0deg) scale(0.2, 0.2);
+				transform: rotate(0deg) scale(0.2, 0.2);
+			}
+			header .mobile-links input:checked ~ span:nth-last-child(2) {
+				-webkit-transform: rotate(-45deg) translate(0, -1px);
+				-ms-transform: rotate(-45deg) translate(0, -1px);
+				transform: rotate(-45deg) translate(0, -1px);
+			}
+			header .mobile-links input:checked ~ #mobile-menu {
+				-webkit-transform: translate(0, 0);
+				-ms-transform: translate(0, 0);
+				transform: translate(0, 0);
+			}
+
+			body.menu-open {
+				overflow: hidden;
+			}
+		</style>
+		<link rel="stylesheet" href="main.css?v=1" />
 	</head>
 
 	<body>
@@ -137,7 +396,7 @@
 				<div class="row col-two">
 					<div
 						class="col image-container"
-						style="background-image: url('images/bg-tailored.png');"
+						style="background-image: url('images/bg-tailored.jpg');"
 					></div>
 					<div class="col text">
 						<div class="content">
@@ -165,7 +424,7 @@
 			<section class="articles">
 				<div class="inner-container">
 					<div class="header-text">
-						<h2 class="title" data-aos="fade-up" data-aos-delay="300">
+						<h2 class="title" data-aos="fade-up">
 							Pets (and their humans) love us
 						</h2>
 					</div>
@@ -285,7 +544,9 @@
 			integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
 			crossorigin="anonymous"
 		></script>
-		<script src="main.js"></script>
-		<script></script>
+		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+		<script src="main.js?v=1"></script>
+
+		<script> </script>
 	</body>
 </html>

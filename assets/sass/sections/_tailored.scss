@@ -3,6 +3,7 @@ section.tailored {
 	margin-top: 60px;
 	background: #f7eceb;
 	color: $darkBlue;
+	font-size: 20px;
 
 	.col.image-container {
 		background-size: cover;
@@ -25,6 +26,8 @@ section.tailored {
 	@media (min-width: $breakPoint) {
 		margin-top: 115px;
 		height: 70vh;
+		min-height: 750px;
+		font-size: 18px;
 		.col {
 			height: 100%;
 		}
@@ -38,6 +41,7 @@ section.tailored {
 			padding: 0px;
 			text-align: left;
 			padding-left: 2em;
+			padding-right: 2em;
 			.content {
 				max-width: 100%;
 				width: 400px;
@@ -47,6 +51,7 @@ section.tailored {
 	@media (min-width: 1100px) {
 		.col.text {
 			padding-left: 6em;
+			font-size: 24px;
 		}
 	}
 }
