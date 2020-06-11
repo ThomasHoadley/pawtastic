@@ -59,16 +59,6 @@ section.articles {
 			}
 		}
 	}
-	@media (min-width: 960px) {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-
-		.article {
-			width: calc(50% - 40px);
-			margin: 20px;
-		}
-	}
 	.image {
 		width: 160px;
 		height: auto;
@@ -80,13 +70,24 @@ section.articles {
 		}
 	}
 	.text {
-		padding-left: 30px;
 		h4 {
 			margin-top: 0px;
 			margin-bottom: 10px;
 		}
 		p {
 			font-size: 18px;
+		}
+	}
+	@media (min-width: 960px) {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		.text {
+			padding-left: 30px;
+		}
+		.article {
+			width: calc(50% - 40px);
+			margin: 20px;
 		}
 	}
 }

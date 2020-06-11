@@ -55,3 +55,29 @@ input[type="reset"] {
 	display: flex;
 	justify-content: center;
 }
+
+.stroke ul li a,
+.stroke ul li a:after,
+.stroke ul li a:before {
+	transition: all 0.5s;
+}
+
+/* stroke */
+.stroke ul li a {
+	position: relative;
+}
+.stroke ul li a:after {
+	position: absolute;
+	bottom: -5px;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 0%;
+	content: ".";
+	color: transparent;
+	background: #aaa;
+	height: 1px;
+}
+.stroke ul li a:hover:after {
+	width: 100%;
+}
